@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/GameObjects/BaronyUIElement.cs" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+
+[node name="BaronyUIElement" type="VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 58.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture = SubResource( 1 )
+expand = true
+
+[node name="Label" type="Label" parent="."]
+margin_top = 44.0
+margin_right = 40.0
+margin_bottom = 58.0

@@ -1,0 +1,111 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Terrain.cs" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/hexagonTiles/Spritesheet/topTiles.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/PlayerCamera.cs" type="Script" id=3]
+[ext_resource path="res://ObjectScenes/Town.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ObjectScenes/PopulationTool.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/GameObjects/ToolBar.cs" type="Script" id=6]
+[ext_resource path="res://ObjectScenes/GoldTool.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ObjectScenes/DevelopmentTool.tscn" type="PackedScene" id=8]
+
+[sub_resource type="TileSet" id=1]
+0/name = "topTiles.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 110, 0, 55, 56 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "topTiles.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 110, 0, 55, 56 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 1, 0 )
+tile_set = SubResource( 1 )
+cell_size = Vector2( 55, 40 )
+cell_half_offset = 0
+format = 1
+tile_data = PoolIntArray( 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0 )
+script = ExtResource( 1 )
+TerrainWidth = 64
+TerrainHeight = 64
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+script = ExtResource( 3 )
+CameraSpeed = 5.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+margin_right = 34.0
+margin_bottom = 34.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+NextTurnPath = NodePath("ToolBarContainer/VBoxContainer/NextTurn")
+
+[node name="ToolBarContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 213.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 20, 20 )
+
+[node name="PopulationTool" parent="CanvasLayer/PanelContainer/ToolBarContainer" instance=ExtResource( 5 )]
+baronyPath = NodePath("../../../../Barony")
+
+[node name="GoldTool" parent="CanvasLayer/PanelContainer/ToolBarContainer" instance=ExtResource( 7 )]
+margin_left = 44.0
+margin_right = 84.0
+baronyPath = NodePath("../../../../Barony")
+
+[node name="DevelopmentTool" parent="CanvasLayer/PanelContainer/ToolBarContainer" instance=ExtResource( 8 )]
+margin_left = 88.0
+margin_right = 128.0
+baronyPath = NodePath("../../../../Barony")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/ToolBarContainer"]
+margin_left = 132.0
+margin_right = 206.0
+margin_bottom = 58.0
+
+[node name="year_label" type="Label" parent="CanvasLayer/PanelContainer/ToolBarContainer/VBoxContainer"]
+margin_right = 74.0
+margin_bottom = 14.0
+
+[node name="NextTurn" type="Button" parent="CanvasLayer/PanelContainer/ToolBarContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 74.0
+margin_bottom = 38.0
+text = "Next Turn"
+
+[node name="Barony" parent="." instance=ExtResource( 4 )]
+position = Vector2( 278.616, 146.44 )
+z_index = 1
+Gold = 2000
+[connection signal="button_up" from="CanvasLayer/PanelContainer/ToolBarContainer/VBoxContainer/NextTurn" to="CanvasLayer/PanelContainer" method="NextTurnButtonUp"]

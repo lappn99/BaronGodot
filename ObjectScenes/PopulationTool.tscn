@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ObjectScenes/BaronyUIElement.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/GameObjects/PopulationTool.cs" type="Script" id=2]
+
+[node name="PopulationTool" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+_imageFile = "res://Assets/Sprites/789_Lorc_RPG_icons/789_Lorc_RPG_icons/Icon.3_83.png"
