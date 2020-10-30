@@ -1,10 +1,22 @@
 using Godot;
 using System;
+using  BaronyGame.GameObjects;
 
-public class GameSignals : Node
+namespace BaronyGame.Singletons
 {
-    [Signal]
-    public delegate void UpdateUI(int year);
-    [Signal]
-    public delegate void NextTurn();
+	public class GameSignals : Node
+	{
+		[Signal]
+		public delegate void UpdateUI();
+
+		[Signal]
+		public delegate void YearChanged(int year);
+
+		[Signal]
+		public delegate void NextTurn();
+
+		[Signal]
+		public delegate void CurrentBaronyChanged(Barony barony);
+
+	}
 }

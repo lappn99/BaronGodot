@@ -1,13 +1,16 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Terrain.cs" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/hexagonTiles/Spritesheet/topTiles.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/PlayerCamera.cs" type="Script" id=3]
 [ext_resource path="res://ObjectScenes/Town.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ObjectScenes/PopulationTool.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scripts/GameObjects/ToolBar.cs" type="Script" id=6]
+[ext_resource path="res://Scripts/GameObjects/UIElements/ToolBar.cs" type="Script" id=6]
 [ext_resource path="res://ObjectScenes/GoldTool.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ObjectScenes/DevelopmentTool.tscn" type="PackedScene" id=8]
+[ext_resource path="res://ObjectScenes/Event.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ObjectScenes/FoodTool.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scripts/GameObjects/Scenario.cs" type="Script" id=11]
 
 [sub_resource type="TileSet" id=1]
 0/name = "topTiles.png 0"
@@ -39,7 +42,10 @@
 1/shapes = [  ]
 1/z_index = 0
 
-[node name="Node2D" type="Node2D"]
+[node name="Scenario" type="Node2D"]
+script = ExtResource( 11 )
+_scenarioFile = "res://GameData/Core/Scenarios/scenario.json"
+_baronyScene = ExtResource( 4 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 1, 0 )
@@ -72,26 +78,27 @@ NextTurnPath = NodePath("ToolBarContainer/VBoxContainer/NextTurn")
 [node name="ToolBarContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 213.0
+margin_right = 257.0
 margin_bottom = 65.0
 rect_min_size = Vector2( 20, 20 )
 
 [node name="PopulationTool" parent="CanvasLayer/PanelContainer/ToolBarContainer" instance=ExtResource( 5 )]
-baronyPath = NodePath("../../../../Barony")
 
 [node name="GoldTool" parent="CanvasLayer/PanelContainer/ToolBarContainer" instance=ExtResource( 7 )]
 margin_left = 44.0
 margin_right = 84.0
-baronyPath = NodePath("../../../../Barony")
 
 [node name="DevelopmentTool" parent="CanvasLayer/PanelContainer/ToolBarContainer" instance=ExtResource( 8 )]
 margin_left = 88.0
 margin_right = 128.0
-baronyPath = NodePath("../../../../Barony")
+
+[node name="FoodTool" parent="CanvasLayer/PanelContainer/ToolBarContainer" instance=ExtResource( 10 )]
+margin_left = 132.0
+margin_right = 172.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/ToolBarContainer"]
-margin_left = 132.0
-margin_right = 206.0
+margin_left = 176.0
+margin_right = 250.0
 margin_bottom = 58.0
 
 [node name="year_label" type="Label" parent="CanvasLayer/PanelContainer/ToolBarContainer/VBoxContainer"]
@@ -104,8 +111,6 @@ margin_right = 74.0
 margin_bottom = 38.0
 text = "Next Turn"
 
-[node name="Barony" parent="." instance=ExtResource( 4 )]
-position = Vector2( 278.616, 146.44 )
-z_index = 1
-Gold = 2000
+[node name="Event" parent="." instance=ExtResource( 9 )]
+_eventFile = "res://GameData/Core/Events/EVENT_000.json"
 [connection signal="button_up" from="CanvasLayer/PanelContainer/ToolBarContainer/VBoxContainer/NextTurn" to="CanvasLayer/PanelContainer" method="NextTurnButtonUp"]

@@ -24,6 +24,7 @@ config/icon="res://icon.png"
 GameSignals="*res://Scripts/Singletons/GameSignals.cs"
 GlobalProperties="*res://Scripts/Singletons/GlobalProperties.cs"
 GameController="*res://Scripts/Singletons/GameController.cs"
+StringProvider="*res://Scripts/Singletons/StringProvider.cs"
 
 [input]
 
@@ -52,7 +53,13 @@ zoom_in={
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":4,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+left_click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
 
 [rendering]
 
+quality/depth/hdr=false
 environment/default_environment="res://default_env.tres"

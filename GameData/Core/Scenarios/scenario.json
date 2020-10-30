@@ -1,0 +1,23 @@
+{
+    "name" : "dev_scenario",
+    "starting_year" : "1066",
+    "baronies" :[
+        {
+            "townName" : "Orangeville",
+            "x" : 200,
+            "y" :200,
+            "gold" : 2000,
+            "food" : 1000,
+            "startingPopulation" : 1500,
+            "playerControlled" : true
+        }
+    ],
+    "jobs":[
+        {
+            "type" : "FarmingJob",
+            "resourceFile" : "res://ObjectScenes/Jobs/Farming.tscn",
+            "x" : 100,
+            "y":50
+        }
+    ]
+}

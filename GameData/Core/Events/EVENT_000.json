@@ -1,0 +1,11 @@
+{
+    "event_text" : "DEBUG_TEST_EVENT",
+    "lua_file" : "res://GameData/Core/Events/EVENT_000.lua",
+    "options" :[
+        {
+            "text" : "TEST_EVENT",
+            "tooltip" : "THIS IS A TEST EVENT",
+            "action" : "TestAction"
+        }
+    ]
+}

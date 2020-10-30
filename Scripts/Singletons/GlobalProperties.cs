@@ -1,17 +1,21 @@
 using Godot;
 using System;
-
-public class GlobalProperties : Node
+using BaronyGame.GameObjects;
+namespace BaronyGame.Singletons
 {
 
-    private int _tileSize;
-
-    public int TileSize{get => _tileSize; set => _tileSize = value;}
-
-    public override void _Ready()
+    public class GlobalProperties : Node
     {
-        
+
+        private int _tileSize;
+
+        public int TileSize { get => _tileSize; set => _tileSize = value; }
+
+        public override void _Ready()
+        {
+
+        }
+
+
     }
-
-
 }

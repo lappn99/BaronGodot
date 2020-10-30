@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/GameObjects/Jobs/Job.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/GameObjects/UIElements/PopupWindows/JobPopupWindow.cs" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10.044, 10 )
+
+[node name="Job" type="StaticBody2D"]
+input_pickable = true
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="WindowDialog" type="WindowDialog" parent="."]
+visible = true
+anchor_right = 0.23
+margin_right = 48.0
+margin_bottom = 39.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_scale = Vector2( 0.5, 0.5 )
+resizable = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoxContainer" type="VBoxContainer" parent="WindowDialog"]
+anchor_left = -0.014
+anchor_right = -0.014
+margin_left = -0.328
+margin_right = 86.672
+margin_bottom = 55.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumDevelopments" type="Label" parent="WindowDialog/BoxContainer"]
+margin_right = 87.0
+margin_bottom = 14.0
+size_flags_vertical = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddWorkers" type="Button" parent="WindowDialog/BoxContainer"]
+margin_top = 18.0
+margin_right = 87.0
+margin_bottom = 38.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+text = "Add Worker"

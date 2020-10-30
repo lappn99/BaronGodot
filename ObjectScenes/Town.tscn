@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://BaronObject.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/GameObjects/Barony.cs" type="Script" id=2]
 [ext_resource path="res://Assets/Sprites/Toen&#039;s Medieval Strategy Sprite Pack v.1.0  (16x16)/Tile-set - Toen's Medieval Strategy (16x16) - v.1.0.png" type="Texture" id=3]
+[ext_resource path="res://ObjectScenes/Development.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/GameObjects/UIElements/PopupWindows/TownPopup.cs" type="Script" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -12,6 +14,22 @@ region = Rect2( 32, 16, 16, 16 )
 script = ExtResource( 2 )
 TownName = "Orangeville"
 PlayerControlled = true
+_developmentResouce = ExtResource( 4 )
 
 [node name="Sprite" parent="." index="0"]
 texture = SubResource( 1 )
+
+[node name="TownPopup" type="WindowDialog" parent="." index="2"]
+margin_right = 48.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.5, 0.5 )
+resizable = true
+script = ExtResource( 5 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TownPopup" index="1"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="PopulationLabel" type="Label" parent="TownPopup/VBoxContainer" index="0"]
+margin_right = 40.0
+margin_bottom = 14.0

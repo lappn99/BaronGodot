@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/GameObjects/UIElements/PopupWindows/EventWindow.cs" type="Script" id=1]
+
+[node name="Event" type="WindowDialog"]
+visible = true
+margin_right = 320.0
+margin_bottom = 226.0
+rect_scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EventOptions" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0

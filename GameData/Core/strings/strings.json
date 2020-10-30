@@ -1,0 +1,17 @@
+{
+   "strings" : [
+       {
+           "id" : "TOOLBAR_YEAR",
+           "string" : "Year: {0}"
+       },
+       {
+           "id":"JOB_POPUP_WINDOW_NUM_WORKERS",
+           "string" : "Workers in use: {0}"
+       },
+       {
+           "id" : "TOWN_POPUP_POPULATION",
+           "string" : "Population: {0}"
+       }
+       
+   ]
+}
